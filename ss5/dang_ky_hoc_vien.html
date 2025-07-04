@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .mt {
+            margin-top: 12px;
+        }
+
+        .ml {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body style="justify-items: center;">
+<form style="width: 500px; background-color: burlywood; padding: 3px;">
+    <h1 style="background-color: aquamarine; margin-top: 0; color: blue">Đăng ký học viên</h1>
+
+    <div>
+        <label for="hoVaTen">Họ và tên</label>
+        <input class="ml" name="hoVaTen" id="hoVaTen" type="text">
+    </div>
+
+    <div class="mt">
+        <label for="hoVaTen">Ngày sinh</label>
+        <input name="hoVaTen" id="ngaySinh" type="text" style="margin-left: 25.5px">
+    </div>
+
+    <div class="mt">
+        <label>Giới tính</label>
+        <input style="margin-left: 35px" id="male" type="radio" name="gender" value="male">
+        <label for="male">Nam</label>
+        <input id="female" type="radio" name="gender" value="female">
+        <label for="female">Nữ</label>
+    </div>
+    <div class="mt">
+        <label for="add">Địa chỉ</label>
+        <input style="margin-left: 43px; height: 50px; width: 200px;" id="add" type="text" name="gender">
+    </div>
+
+    <div class="mt">
+        <label>Lớp</label>
+        <select style="margin-left: 63px">
+            <option>--Chọn lớp--</option>
+            <option>C06</option>
+            <option>C07</option>
+            <option>C08</option>
+        </select>
+    </div>
+
+    <div class="mt">
+        <label for="email">Email</label>
+        <input style="margin-left: 50px" id="email" type="email" name="email">
+    </div>
+
+    <div class="mt">
+        <label for="tel">Điện thoại</label>
+        <input style="margin-left: 20px;" id="tel" type="tel" name="tel">
+    </div>
+
+    <div class="mt" style="margin-left: 91px">
+        <button>Đăng ký</button>
+        <button>Đăng nhập</button>
+    </div>
+</form>
+</body>
+</html>
