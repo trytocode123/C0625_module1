@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .bold {
+            font-size: 95%;
+            font-weight: bold;
+        }
+
+        div:focus-within {
+            background-color: #fff7c0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transform {
+            transform: translateY(20%);
+        }
+
+        input {
+            margin-left: 0;
+        }
+
+    </style>
+</head>
+<body style="margin: 0;">
+<div style=" border-bottom: 1px dashed black; padding: 12px">
+    <h2>
+        Market Research Survey
+    </h2>
+
+    <p>Please take a few moments to complete this satisfaction survey.</p>
+</div>
+
+<div style="padding: 12px" tabindex="0">
+    <p class="bold">
+        What is your age range
+    </p>
+
+    <select style="width: 50%; font-size: 100%;">
+        <option value="18-24">18-24</option>
+        <option value="25-34">25-34</option>
+        <option value="35-50">35-50</option>
+        <option value="50+">50+</option>
+    </select>
+</div>
+
+<div style="padding: 12px" tabindex="0">
+    <p class="bold">
+        What is your yearly income range?
+    </p>
+
+    <select style="width: 50%; font-size: 100%;">
+        <option value="18-24">$0 - $25,000</option>
+        <option value="25-34">$25,001 - $50,000</option>
+        <option value="35-50">$50,001 - $100,000</option>
+        <option value="50+">$100,000+</option>
+    </select>
+</div>
+
+<div style="padding: 12px" tabindex="0">
+    <p class="bold">
+        Gender Identity
+    </p>
+
+    <ul>
+        <li>
+            <input id="male" class="transform" type="radio" name="gender" value="male">
+            <label for="male">Male</label>
+        </li>
+
+        <li>
+            <input id="female" class="transform" type="radio" name="gender" value="female">
+            <label for="female">Female</label>
+        </li>
+
+        <li>
+            <input id="nonbinary" class="transform" type="radio" name="gender" value="nonbinary">
+            <label for="nonbinary">Nonbinary</label>
+        </li>
+
+        <li>
+            <ul>
+                <li>
+                    <input class="transform other" type="radio" name="gender" value="other">
+                    <label>Other</label>
+                </li>
+
+                <li>
+                    <input style="margin-left: 20px;" type="text" name="gender">
+                </li>
+
+                <li>
+                    <label style="margin-left: 20px;" class="label-other">Maximum of 250 characters.
+                        Currently Used: 0 characters.</label>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div style="padding: 12px">
+    <p class="bold">
+        Which of the following products have your purchased in the last 2 months. Please check all that apply.
+    </p>
+
+    <ul>
+        <li>
+            <input style="transform: translateY(1.5px)" type="checkbox"> <label>Product 1</label> <br>
+            <input style="transform: translateY(1.5px)" type="checkbox"> <label>Product 1</label> <br>
+            <input style="transform: translateY(1.5px)" type="checkbox"> <label>Product 1</label>
+        </li>
+    </ul>
+</div>
+
+<div style="padding: 12px">
+    <p class="bold">
+        Which of the following products have your purchased in the last 2 months. Please check all that apply.
+    </p>
+
+    <ul>
+        <li>
+            <input style="transform: translateY(1.5px)" type="radio"> <label>Daily</label> <br>
+            <input style="transform: translateY(1.5px)" type="radio"> <label>Weekly</label> <br>
+            <input style="transform: translateY(1.5px)" type="radio"> <label>Monthly</label>
+        </li>
+    </ul>
+</div>
+
+<div style="padding: 12px">
+    <ul>
+        <li>
+            <p style="margin-bottom: 12px;" class="bold">What would you pay for the new product?</p>
+            <label>$</label>
+            <input style="width: 70px" type="number">
+            <label>.</label>
+            <input style="width: 10px" type="number">
+        </li>
+
+        <li>
+            <span style="margin-left: 12px">Dollars</span>
+            <span style="margin-left: 38px">Cents</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
