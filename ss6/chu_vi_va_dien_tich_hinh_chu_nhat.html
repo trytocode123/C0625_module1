@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Chu vi và diện tích hình chữ nhật</h1>
+<div style="margin-bottom: 20px;">
+    <label for="length">Chiều dài:</label>
+    <input style="margin-left: 10px;" id="length" type="text"> <br>
+</div>
+
+
+<label for="width">Chiều rộng:</label>
+<input id="width" type="text"> <br>
+
+<div style="margin-left: 80px; margin-top: 14px;">
+    <button id="btn_chu_vi">
+        Tính chu vi
+    </button>
+
+    <button id="btn_dien_tich">
+        Tinh diện tích
+    </button>
+
+    <button id="btn_xoa">Xóa</button>
+</div>
+
+<div  style="margin-left: 80px;">
+    <p id="chu_vi"></p>
+    <p id="dien_tich"></p>
+</div>
+
+<script>
+    let btn_chu_vi = document.getElementById('btn_chu_vi');
+    let btn_dien_tich = document.getElementById('btn_dien_tich');
+    let btn_xoa = document.getElementById('btn_xoa');
+    let length = document.getElementById('length');
+    let width = document.getElementById('width');
+    let labelChuVi = document.getElementById('chu_vi');
+    let labelDienTich = document.getElementById('dien_tich');
+
+
+    function tinhChuVi() {
+     let chuVi = ((+length.value)  + (+width.value)) * 2;
+      labelChuVi.innerText = "Chu vi hình chữ nhật: " + chuVi;
+    }
+
+    function tinhDientich() {
+        let dienTich = ((+length.value)  * (+width.value));
+        labelDienTich.innerText = "Diện tích hình chữ nhật: " + dienTich;
+    }
+
+    function reset () {
+         labelChuVi.innerText = "";
+         labelDienTich.innerText = "";
+         length.value = "";
+         width.value = "";
+    }
+
+    btn_chu_vi.onclick = tinhChuVi;
+    btn_dien_tich.onclick = tinhDientich;
+    btn_xoa.onclick = reset;
+</script>
+</body>
+</html>
