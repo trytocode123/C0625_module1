@@ -39,34 +39,35 @@
         </td>
     </tr>
 </table>
-<p style="margin-left: 13px;"> <label>Result:</label> <label id="resultAmount"></label></p>
+<p style="margin-left: 13px;"><label>Result:</label> <label id="resultAmount"></label></p>
 <script>
-   let amount = document.getElementById("amount");
-   let resultAmount = document.getElementById("resultAmount");
-   let convert = document.getElementById("convert");
-   let from = document.getElementById("from");
-   let to = document.getElementById("to");
-   let resultMoney;
-   function convertMoney () {
-      //  resultMoney = parseFloat(amount.value) / 25000;
-      // resultAmount.innerText = `${resultMoney}$`;
-      //
-      // if(list1.value == "USD" && list2.value == "VietNam") {
-      //     resultMoney = parseInt(amount.value) * 25000;
-      //     resultAmount.innerText = `${resultMoney}Đ`;
-      //}
-      // resultMoney = (list1.value == "USD" && list2.value == "VietNam") && parseInt(amount.value) * 25000;
-      //
-      //  resultAmount.innerText = `${resultMoney}Đ`;
-      //
-      // resultMoney = (list1.value == "VietNam" && list2.value == "USD") && parseInt(amount.value) / 25000;
-      //  resultAmount.innerText = `${resultMoney}$`;
-       resultMoney = amount.value * to.value/from.value;
-       resultAmount.innerText = `${resultMoney}`;
+    let amount = document.getElementById("amount");
+    let resultAmount = document.getElementById("resultAmount");
+    let convert = document.getElementById("convert");
+    let from = document.getElementById("from");
+    let to = document.getElementById("to");
+    let resultMoney;
 
-   }
+    function convertMoney() {
+        //  resultMoney = parseFloat(amount.value) / 25000;
+        // resultAmount.innerText = `${resultMoney}$`;
+        //
+        // if(list1.value == "USD" && list2.value == "VietNam") {
+        //     resultMoney = parseInt(amount.value) * 25000;
+        //     resultAmount.innerText = `${resultMoney}Đ`;
+        //}
+        // resultMoney = (list1.value == "USD" && list2.value == "VietNam") && parseInt(amount.value) * 25000;
+        //
+        //  resultAmount.innerText = `${resultMoney}Đ`;
+        //
+        // resultMoney = (list1.value == "VietNam" && list2.value == "USD") && parseInt(amount.value) / 25000;
+        //  resultAmount.innerText = `${resultMoney}$`;
+        resultMoney = amount.value * to.value / from.value;
+        resultAmount.innerText = `${resultMoney} ${to.options[to.selectedIndex].text}`;
 
-   convert.onclick = convertMoney;
+    }
+
+    convert.onclick = convertMoney;
 
 </script>
 </body>

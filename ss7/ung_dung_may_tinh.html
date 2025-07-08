@@ -21,10 +21,18 @@
 
 <table>
     <tr>
-        <td><button id="addition">Addition(+)</button></td>
-        <td><button id="subtraction">Subtraction(-)</button></td>
-        <td><button id="multiplication">Multiplication(X)</button></td>
-        <td><button id="division">Division(/)</button></td>
+        <td>
+            <button id="addition">Addition(+)</button>
+        </td>
+        <td>
+            <button id="subtraction">Subtraction(-)</button>
+        </td>
+        <td>
+            <button id="multiplication">Multiplication(X)</button>
+        </td>
+        <td>
+            <button id="division">Division(/)</button>
+        </td>
 
     </tr>
 </table>
@@ -40,22 +48,22 @@
     let num2 = document.getElementById("num2");
     let result = document.getElementById("result");
 
-    function addition () {
-       let resultAdd = parseFloat(num1.value) + parseFloat(num2.value);
-       result.innerText = "Kết quả: " + resultAdd ;
+    function addition() {
+        let resultAdd = parseFloat(num1.value) + parseFloat(num2.value);
+        result.innerText = "Kết quả: " + resultAdd;
     }
 
-    function subtraction () {
+    function subtraction() {
         let resultAdd = parseFloat(num1.value) - parseFloat(num2.value);
         result.innerText = "Kết quả: " + resultAdd;
     }
 
-    function multiplication () {
+    function multiplication() {
         let resultAdd = parseFloat(num1.value) * parseFloat(num2.value);
         result.innerText = "Kết quả: " + resultAdd;
     }
 
-    function division () {
+    function division() {
         let resultAdd = parseFloat(num1.value) / parseFloat(num2.value);
         result.innerText = "Kết quả: " + resultAdd;
     }
