@@ -19,16 +19,18 @@
     <tr>
         <td><input id="amount"></td>
         <td>
-            <select id="list1">
-                <option>VietNam</option>
-                <option value="USD">USD</option>
+            <select id="from">
+                <option value="26122">VietNam</option>
+                <option value="146">Yen</option>
+                <option value="1">USD</option>
             </select>
         </td>
 
         <td>
-            <select id="list2">
-                <option>USD</option>
-                <option value="VietNam">VietNam</option>
+            <select id="to">
+                <option value="26122">VietNam</option>
+                <option value="146">Yen</option>
+                <option value="1">USD</option>
             </select>
         </td>
 
@@ -42,17 +44,25 @@
    let amount = document.getElementById("amount");
    let resultAmount = document.getElementById("resultAmount");
    let convert = document.getElementById("convert");
-   let list1 = document.getElementById("list1");
-   let list2 = document.getElementById("list2");
+   let from = document.getElementById("from");
+   let to = document.getElementById("to");
    let resultMoney;
    function convertMoney () {
-       resultMoney = parseFloat(amount.value) / 25000;
-      resultAmount.innerText = `${resultMoney}$`;
-
-      if(list1.value == "USD" && list2.value == "VietNam") {
-          resultMoney = parseInt(amount.value) * 25000;
-          resultAmount.innerText = `${resultMoney}Đ`;
-      }
+      //  resultMoney = parseFloat(amount.value) / 25000;
+      // resultAmount.innerText = `${resultMoney}$`;
+      //
+      // if(list1.value == "USD" && list2.value == "VietNam") {
+      //     resultMoney = parseInt(amount.value) * 25000;
+      //     resultAmount.innerText = `${resultMoney}Đ`;
+      //}
+      // resultMoney = (list1.value == "USD" && list2.value == "VietNam") && parseInt(amount.value) * 25000;
+      //
+      //  resultAmount.innerText = `${resultMoney}Đ`;
+      //
+      // resultMoney = (list1.value == "VietNam" && list2.value == "USD") && parseInt(amount.value) / 25000;
+      //  resultAmount.innerText = `${resultMoney}$`;
+       resultMoney = amount.value * to.value/from.value;
+       resultAmount.innerText = `${resultMoney}`;
 
    }
 
