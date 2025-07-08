@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<table style="border-spacing: 12px">
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+    </tr>
+
+    <tr>
+        <td><input id="amount"></td>
+        <td>
+            <select id="list1">
+                <option>VietNam</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+
+        <td>
+            <select id="list2">
+                <option>USD</option>
+                <option value="VietNam">VietNam</option>
+            </select>
+        </td>
+
+        <td>
+            <button id="convert">Convert</button>
+        </td>
+    </tr>
+</table>
+<p style="margin-left: 13px;"> <label>Result:</label> <label id="resultAmount"></label></p>
+<script>
+   let amount = document.getElementById("amount");
+   let resultAmount = document.getElementById("resultAmount");
+   let convert = document.getElementById("convert");
+   let list1 = document.getElementById("list1");
+   let list2 = document.getElementById("list2");
+   let resultMoney;
+   function convertMoney () {
+       resultMoney = parseFloat(amount.value) / 25000;
+      resultAmount.innerText = `${resultMoney}$`;
+
+      if(list1.value == "USD" && list2.value == "VietNam") {
+          resultMoney = parseInt(amount.value) * 25000;
+          resultAmount.innerText = `${resultMoney}Đ`;
+      }
+
+   }
+
+   convert.onclick = convertMoney;
+
+</script>
+</body>
+</html>
