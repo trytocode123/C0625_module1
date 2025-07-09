@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //12x2 + 0 - 3 = 0
+    let a = +prompt("Nhập số a");
+    let b = +prompt("Nhập số b");
+    let c = +prompt("Nhập số c");
+    let delta;
+    if (a === 0) {
+        if (b !== 0) {
+            alert(`Kết quả: ${-c / b}`);
+        } else {
+            alert(`Phương trình vô nghiệm`);
+        }
+    } else if (b === 0) {
+        if (c !== 0 && ((c * (-1)) > 0)) {
+            alert(`Kết quả: ${Math.sqrt((c / a))}`);
+        }
+    }
+</script>
+</body>
+</html>

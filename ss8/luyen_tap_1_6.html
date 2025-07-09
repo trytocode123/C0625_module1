@@ -6,9 +6,10 @@
 </head>
 <body>
 <script>
+    let hoaHong;
     function bai6() {
         let doanhThu = +prompt("Nhập doanh thu bán hàng");
-        let hoaHong = 1;
+
         if (doanhThu <= 500000) {
             hoaHong = doanhThu * 0.03;
             alert(`Hoa hồng nhận được ${hoaHong}`);
