@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function bai7() {
+
+        let phiCoDinh = +prompt("Nhập phí cố định");
+        let cuocGoi = +prompt("Nhập phí cước gọi");
+        let cuocSMS = +prompt("Nhập phí SMS");
+        let goiCongThem = +prompt("Nhập phí gói cộng thêm");
+        let total = 0;
+
+        if (phiCoDinh <= 50000) {
+            total = (phiCoDinh + goiCongThem + cuocGoi + cuocSMS) * 0.03;
+            alert(`Cước điện thoại ${total} VDN`);
+        } else if (phiCoDinh <= 100000) {
+            total = (phiCoDinh + goiCongThem + cuocGoi + cuocSMS) * 0.05;
+            alert(`Cước điện thoại ${total} VND`);
+        } else {
+            total = (phiCoDinh + goiCongThem + cuocGoi + cuocSMS) * 0.07;
+            alert(`Cước điện thoại ${total} VND`);
+        }
+    }
+
+    bai7();
+</script>
+</body>
+</html>

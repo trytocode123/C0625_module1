@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function bai5() {
+        let diemBaiKiemTra = +prompt("Nhập điểm bài kiểm tra: ");
+        let diemThiGiuaKy = +prompt("Nhập thi giữa kỳ: ");
+        let diemThiCuoiKy = +prompt("Nhập thi cuối kỳ: ");
+
+        let diemXepLoaiHocLuc = (diemBaiKiemTra + diemThiGiuaKy + diemThiCuoiKy) / 3;
+
+        if (diemXepLoaiHocLuc >= 88) {
+            alert("Giỏi");
+        } else if (diemXepLoaiHocLuc >= 55) {
+            alert("Khá");
+        } else {
+            alert("Yếu");
+        }
+    }
+
+    bai5();
+</script>
+</body>
+</html>
