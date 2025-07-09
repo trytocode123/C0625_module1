@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let tienGoc = +prompt("Nhập số tiền ban đầu");
+  let laiXuat = +prompt("Nhập lãi xuất hàng tháng") / 100;
+  let soThangChoVay = +prompt("Nhập số tháng cho vay");
+  let laiKep = tienGoc * Math.pow(1 + laiXuat, soThangChoVay);
+  alert(`Số lãi ngân hàng ${(laiKep - tienGoc).toLocaleString("vi-VN")}`)
+
+</script>
+</body>
+</html>

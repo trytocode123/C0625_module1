@@ -6,22 +6,29 @@
 </head>
 <body>
 <script>
-    //12x2 + 0 - 3 = 0
     let a = +prompt("Nhập số a");
     let b = +prompt("Nhập số b");
     let c = +prompt("Nhập số c");
-    let delta;
+    let delta = (b * b) - (4 * a * c);
+    let x1, x2;
+
     if (a === 0) {
         if (b !== 0) {
             alert(`Kết quả: ${-c / b}`);
         } else {
             alert(`Phương trình vô nghiệm`);
         }
-    } else if (b === 0) {
-        if (c !== 0 && ((c * (-1)) > 0)) {
-            alert(`Kết quả: ${Math.sqrt((c / a))}`);
-        }
+    } else if (delta > 0) {
+        x1 = (-b + Math.sqrt(delta)) / 2 * a;
+        x2 = (-b - Math.sqrt(delta)) / 2 * a;
+        alert(`Phương trình có 2 nghiệm phân biệt ${x1} và ${x2}`);
+    } else if (delta === 0) {
+        x1 = x2 = -b / (2 * a);
+        alert(`Phương trình có nghiệm kép ${x1}`);
+    } else {
+        alert(`Phương trình vô nghiệm`);
     }
+
 </script>
 </body>
 </html>

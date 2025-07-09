@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let tienDien = +prompt("Nhập số kWh");
+  let total;
+
+  if(tienDien <= 50) {
+   total = tienDien * 1728;
+  } else if(tienDien <= 100) {
+    total = (tienDien - 50) * 1786 + 50 * 1728;
+  } else if(tienDien <= 200) {
+    total = (tienDien - 100) * 2074 + 50 * 1728 + 50 * 1786;
+  } else if(tienDien <= 300) {
+    total = (tienDien - 200) * 2612 + 50 * 1728 + 50 * 1786 + 100 * 2074;
+  } else if(tienDien <= 400) {
+    total = (tienDien - 300) * 2919 + 50 * 1728 + 50 * 1786 + 100 * 2074 + 100 * 2612;
+  } else {
+    total = (tienDien - 400) * 3015 + 50 * 1728 + 50 * 1786 + 100 * 2074 + 100 * 2612 + 100 * 2919;
+  }
+
+  alert(`Tiền điện là ${total.toLocaleString("vi-VN")} VND`)
+
+</script>
+</body>
+</html>

@@ -12,13 +12,13 @@
 
         if (doanhThu <= 500000) {
             hoaHong = doanhThu * 0.03;
-            alert(`Hoa hồng nhận được ${hoaHong}`);
+            alert(`Hoa hồng nhận được ${hoaHong.toLocaleString("vi-VN")}`);
         } else if (doanhThu <= 1000000) {
             hoaHong = doanhThu * 0.05;
-            alert(`Hoa hồng nhận được ${hoaHong}`);
+            alert(`Hoa hồng nhận được ${hoaHong.toLocaleString("vi-VN")}`);
         } else {
             hoaHong = doanhThu * 0.07;
-            alert(`Hoa hồng nhận được ${hoaHong}`);
+            alert(`Hoa hồng nhận được ${hoaHong.toLocaleString("vi-VN")}`);
         }
 
     }
