@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input oninput="checkValidate()" id="name" placeholder="Nhập tên"><br>
+    <p style="color: red" id="nameError"></p>
+    <input oninput="checkValidate()" id="address" placeholder="Nhập địa chỉ"> <br>
+    <p style="color: red" id="addressError"></p>
+    <button id="btn" disabled>Gửi</button>
+</form>
+<script>
+    function checkValidate() {
+        let name = document.getElementById("name").value;
+        let address = document.getElementById("address").value;
+        let btn = document.getElementById("btn");
+        if (name.length < 5) {
+            document.getElementById("nameError").innerText = "Tên phải ít nhất 5 ký tự";
+        } else {
+            document.getElementById("nameError").innerText = "";
+
+        }
+
+        if (address.length < 5) {
+            document.getElementById("addressError").innerText = "Địa chỉ phải ít nhất 5 ký tự";
+        } else {
+            document.getElementById("addressError").innerText = "";
+        }
+
+        if (name.length >= 5 && address.length >= 5) {
+            {
+                btn.disabled = false;
+            }
+        } else {
+            btn.disabled = true;
+        }
+    }
+
+</script>
+</body>
+</html>
+</body>
+</html>

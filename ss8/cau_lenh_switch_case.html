@@ -15,43 +15,26 @@
 
     function tinhNgay() {
         let month = +input.value;
+
         switch (month) {
             case 1:
-                result.innerText = "Tháng 1 có 31 ngày";
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                result.innerText = "Tháng có 31 ngày";
                 break;
             case 2:
-                result.innerText = "Tháng 2 có 28 hoặc 29 ngày";
-                break;
-            case 3:
-                result.innerText = "Tháng 3 có 31 ngày";
-                break;
             case 4:
-                result.innerText = "Tháng 4 có 30 ngày";
-                break;
-            case 5:
-                result.innerText = "Tháng 5 có 31 ngày";
-                break;
             case 6:
-                result.innerText = "Tháng 6 có 30 ngày";
-                break;
-            case 7:
-                result.innerText = "Tháng 7 có 31 ngày";
-                break;
-            case 8:
-                result.innerText = "Tháng 8 có 31 ngày";
-                break;
             case 9:
-                result.innerText = "Tháng 9 có 30 ngày";
-                break;
-            case 10:
-                result.innerText = "Tháng 10 có 31 ngày";
-                break;
             case 11:
-                result.innerText = "Tháng 11 có 30 ngày";
+                result.innerText = "Tháng có 30 ngày";
                 break;
-            case 12:
-                result.innerText = "Tháng 12 có 31 ngày";
-                break;
+            default:
+                result.innerText = "Không phải tháng của năm";
 
         }
     }
