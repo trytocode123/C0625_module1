@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập số lượng các số");
+    let count = 0;
+    let f1 = 0 ;
+    let f2 = 1;
+    let sum = 0;
+
+    while (count < 20) {
+        let f = f1 + f2;
+        sum += f;
+        f1 = f2;
+        f2 = f;
+        count++;
+    }
+    console.log(sum);
+</script>
+</body>
+</html>

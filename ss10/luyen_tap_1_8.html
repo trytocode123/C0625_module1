@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">Bắt đầu</button>
+<p id="label">Bạn đã hết số lần đoán</p>
+<script>
+    let label = document.getElementById("label");
+    label.hidden = true;
+    let btn = document.getElementById("btn");
+    btn.onclick = start;
+
+    function start() {
+        let a = +prompt("Số bạn muốn đoán trong khoảng lớn nhất là bao nhiêu");
+        let b = +prompt("Số bạn muốn đoán");
+        let random = (Math.floor(Math.random() * a));
+        let count = 0;
+        console.log(random);
+        while (true) {
+            if (b < random) {
+                alert("Số bạn đoán bé hơn");
+                b = +prompt("Chọn lại");
+
+            } else if (b > random) {
+                alert("Số bạn đoán lớn hơn");
+                b = +prompt("Chọn lại");
+            }
+
+            ++count;
+
+            if (count === 3 && b !== random) {
+                alert("Bạn đã hết số lần đoán");
+                btn.hidden = true;
+                label.hidden = false;
+                break;
+            }
+        }
+        if (b === random) {
+            alert("Chúc mừng");
+        }
+    }
+
+</script>
+</body>
+</html>

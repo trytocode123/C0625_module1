@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td {
+            text-align: center;
+            border: 2px solid;
+        }
+    </style>
+</head>
+<body>
+<h1>Bảng cửu chương</h1>
+<table border="2" style="border-collapse: collapse; width: 1000px; height: 600px" id="table">
+
+</table>
+<script>
+    let table = document.getElementById("table");
+    let htmlTableString = "<table>";
+    for (let i = 1; i <= 10; i++) {
+        htmlTableString += "<tr>";
+        for (let j = 1; j <= 10; j++) {
+            htmlTableString += `<td >${j} * ${i}=${i * j}</td>`
+        }
+        htmlTableString += "</tr>"
+    }
+    htmlTableString += "</table>";
+
+    table.innerHTML = htmlTableString;
+</script>
+</body>
+</html>
