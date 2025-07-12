@@ -16,7 +16,7 @@
     function start() {
         let a = +prompt("Số bạn muốn đoán trong khoảng lớn nhất là bao nhiêu");
         let b = +prompt("Số bạn muốn đoán");
-        let random = (Math.floor(Math.random() * a));
+        let random = (Math.floor(Math.random() * ( a + 1) ));
         let count = 1;
         console.log(random);
         while (true) {
