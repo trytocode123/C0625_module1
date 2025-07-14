@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  while (true) {
+    let a = +prompt("Nhập số tiền ban đầu");
+    let b = +prompt("Nhập số tháng");
+    let c = +prompt("Nhập số lãi hằng tháng") / 100;
+    let init = 1;
+    for (let i = 0; i < b; i++) {
+      init *= (1 + c);
+    }
+
+    let laiNganHang = a * init;
+    alert(`Lãi kép sau ${b} tháng là: ${ (a + (laiNganHang - a)).toLocaleString("vi-VN")}`);
+  }
+
+
+
+</script>
+</body>
+</html>

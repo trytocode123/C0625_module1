@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập một số nguyên");
+    let init = 1;
+    let string = "";
+    for (let i = 1; i <= a; i++) {
+        init *= i;
+        string += `${i}`;
+        if (i === a) {
+            continue;
+        }
+        string += "*";
+    }
+
+    alert(`${string} = ${init}`);
+</script>
+</body>
+</html>

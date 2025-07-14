@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    while (true) {
+        let a = +prompt("-------Quản lý sinh viên--------- \n -hãy nhập số để chọn đồ uống " +
+            "\n 1. Hiển thị danh sách sinh viên \n 2. Thêm mới sinh viên \n 3. Xóa sinh viên \n 4. Kết thúc chương trình");
+        switch (a) {
+            case (1):
+                alert("Hiển thị danh sách sinh viên");
+                break;
+            case (2):
+                alert("Thêm mới sinh viên");
+                break;
+            case (3):
+                alert("Xóa sinh viên");
+                break;
+            case (4):
+
+                let result = confirm("Bạn có chắc không?")
+                if (result) {
+                    alert("Kết thúc chương trình");
+                    break;
+                } else {
+                    continue;
+                }
+
+        }
+
+        if (a === 4) {
+            break;
+        }
+
+    }
+</script>
+</body>
+</html>
