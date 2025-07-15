@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = prompt("Nhập chuỗi số");
+  let list = [];
+  for (let i = 0; i < a.length; i++) {
+    if(a[i] % 2 === 0 && a[i + 1] % 2 === 0) {
+
+      list.push(a[i] + "-");
+    } else {
+
+      list.push(a[i]);
+    }
+  }
+  alert(list.join(""));
+</script>
+</body>
+</html>

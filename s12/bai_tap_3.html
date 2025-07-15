@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập chuỗi");
+    const upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowCase = "abcdefghijklmnopqrstuvwxyz";
+    let listString = [];
+    for (let i = 0; i < string.length; i++) {
+        if (upCase.includes(string[i])) {
+            listString.push(string[i].toLowerCase());
+
+        } else if (lowCase.includes(string[i])) {
+            listString.push(string[i].toUpperCase());
+
+        } else {
+            listString.push(string[i]);
+        }
+    }
+
+    alert(listString.join(''));
+</script>
+</body>
+</html>
