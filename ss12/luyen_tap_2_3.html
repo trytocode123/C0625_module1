@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let listString = new Array(10);
+    let a;
+    for (let i = 0; i < listString.length; i++) {
+        a = prompt("Nhập số")
+        listString[i] = a;
+    }
+    let count = 0;
+    for (let i = 0; i < listString.length; i++) {
+        if (listString[i] > 0) {
+            count++;
+        }
+    }
+    console.log(listString)
+    alert(`Số ký tự số trong mảng là ${count}`);
+</script>
+</body>
+</html>
