@@ -8,17 +8,14 @@
 <script>
     let string = prompt("Nhập một chuỗi");
     let count = 0;
-    let arr = [];
+    let x = ["u", "e", "o", "a", "i", "y"];
     for (let i = 0; i < string.length; i++) {
-        if (!string[i].includes(" "))
-        {
-            arr.push(string[i]);
+        if(x.includes(string[i])) {
+            count++;
         }
-            // console.log(string[i]);
-        console.log(arr);
     }
-    // console.log("1" > 0);
-    // alert(`Có ${count} số nguyên âm trong chuỗi`)
+    alert(`Số nguyên âm trong một chuỗi ${count}`);
+
 </script>
 </body>
 </html>
