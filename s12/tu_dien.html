@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let vietNamList = ["xin chào", "con cá", "bàn", "ghế"];
+    let engList = ["hello", "fish", "table", "chair"];
+
+    let a = prompt("Nhập từ");
+    for (let i = 0; i < engList.length; i++) {
+        if(engList.includes(a)) {
+            let index = engList.indexOf(a);
+            alert(vietNamList[index]);
+            break;
+        }
+    }
+
+</script>
+</body>
+</html>
