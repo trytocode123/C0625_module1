@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập bao nhiêu số");
+    let arr = [];
+    while (true) {
+        let numb = +prompt("Nhập phần tử");
+        arr.push(numb);
+
+        if (arr.length === n) {
+            break;
+        }
+    }
+
+    let numb = +prompt("Nhập số để xóa");
+
+    if (arr.includes(numb)) {
+        arr.splice(arr.indexOf(numb), 1);
+        alert(`Mảng sau khi xóa phần tử ${numb}: ${arr}`);
+    } else {
+        alert(`V(${numb}) is not in the array`);
+    }
+</script>
+</body>
+</html>

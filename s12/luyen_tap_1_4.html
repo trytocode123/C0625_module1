@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập bao nhiêu số");
+    let arr = [];
+    while (true) {
+        let numb = +prompt("Nhập phần tử");
+        arr.push(numb);
+
+        if (arr.length === n) {
+            break;
+        }
+    }
+
+    alert(`Mảng khởi tạo ban đầu: ${arr}`)
+
+    alert(`Đảo ngược mảng: ${arr.reverse()}`)
+</script>
+</body>
+</html>

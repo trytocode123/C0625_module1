@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập bao nhiêu số");
+    let arr = [];
+    while (true) {
+        let numb = +prompt("Nhập phần tử");
+        arr.push(numb);
+
+        if (arr.length === n) {
+            break;
+        }
+    }
+
+    let arrDercease = arr.sort(function (a, b) {
+        return b - a;
+    });
+
+    alert(`Mảng sau khi được sắp xếp giảm dần ${arrDercease}`)
+
+</script>
+</body>
+</html>
