@@ -6,19 +6,25 @@
 </head>
 <body>
 <script>
-  let string1 = prompt("Nhập chuỗi thứ nhất");
-  let string2 = prompt("Nhập chuỗi thứ hai");
-
-  for (let i = 0; i < string1.length; i++) {
-    if (string1[i] === string2[i]) {
-      alert("Hai chuỗi giống nhau");
-      break;
-
-    } else {
-      alert("Hai chuỗi khác nhau");
-      break;
+    let string1 = prompt("Nhập chuỗi thứ nhất");
+    let string2 = prompt("Nhập chuỗi thứ hai");
+    let count = 0;
+    for (let i = 0; i < string1.length; i++) {
+        if (string1.length !== string2.length) {
+            alert("Hai chuỗi không giống nhau");
+            break;
+        } else if (string1[i] === string2[i]) {
+            count++;
+        }
     }
-  }
+
+    if(count === string1.length) {
+        alert("Hai chuỗi giống nhau");
+    } else {
+        alert("Hai chuỗi không giống nhau");
+    }
+    console.log(string1.length);
+    console.log(count);
 </script>
 </body>
 </html>
