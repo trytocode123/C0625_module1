@@ -8,6 +8,7 @@
 <script>
     let n = +prompt("Nhập bao nhiêu số");
     let arr = [];
+
     while (true) {
         let numb = +prompt("Nhập phần tử");
         arr.push(numb);
@@ -17,14 +18,19 @@
         }
     }
 
-    let numb = +prompt("Nhập số để xóa");
+    let numToDelete = +prompt("Nhập số để xóa");
 
-    if (arr.includes(numb)) {
-        arr.splice(arr.indexOf(numb), 1);
-        alert(`Mảng sau khi xóa phần tử ${numb}: ${arr}`);
+    if (arr.includes(numToDelete)) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === numToDelete) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
     } else {
-        alert(`V(${numb}) is not in the array`);
+        alert(`V(${numToDelete}) is not in the array`);
     }
+
 </script>
 </body>
 </html>
