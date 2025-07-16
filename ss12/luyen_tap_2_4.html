@@ -8,12 +8,24 @@
 <script>
   let string = prompt("Nhập chuỗi");
   let newString = string.split(" ");
+  let count = 0;
   for (let i = 0; i < newString.length; i++) {
+
+      // if(newString[i] !== ""){
+      //     newString.splice(i, 1);
+      //     count++;
+      // }
+
       if(newString[i] === ""){
-          newString.splice(newString[i], 1);
+          newString.splice(i, 1);
+          i--;
       }
+
+
+
   }
-  alert(`Số từ trong một chuỗi là ${newString.length}`)
+  // console.log(newString);
+  alert(`Số từ trong một chuỗi là ${count}`)
 </script>
 </body>
 </html>
