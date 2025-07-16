@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numb = +prompt("Nhập số để kiểm tra");
+
+    function isPrime(number) {
+        let count = 0;
+        for (let i = 1; i < number; i++) {
+            if(number % i === 0) {
+                count++;
+            }
+        }
+
+        if(count > 1) {
+            alert(`Số ${numb} không phải là số nguyên tố`);
+        } else {
+            alert(`Số ${numb} là số nguyên tố`);
+        }
+    }
+
+    isPrime(numb);
+
+</script>
+</body>
+</html>

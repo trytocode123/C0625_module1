@@ -9,16 +9,16 @@
     let listString = new Array(10);
     let a;
     for (let i = 0; i < listString.length; i++) {
-        a = prompt("Nhập số")
+        a = prompt("Nhập ký tự");
         listString[i] = a;
     }
     let count = 0;
-    for (let i = 0; i < listString.length; i++) {
-        if (listString[i] >= 0) {
+    for (let j = 0; j < listString.length; j++) {
+        if (listString[j] >= 0 && listString[j] <= 9) {
             count++;
         }
     }
-    console.log(listString)
+    console.log(listString);
     alert(`Số ký tự số trong mảng là ${count}`);
 </script>
 </body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let f = +prompt("Nhập feet");
+    let m = +prompt("Nhập meter");
+
+    let result1 = function feetToMeter(f) {
+        let meter;
+        meter = 0.305 * f;
+        return meter;
+    }
+
+    let result2 = function meterToFeet(m) {
+        let foot;
+        foot = 3.279 * m;
+        return foot;
+    }
+
+    alert(`Chuyển đổi từ foot sang meter ${result1(f)}`);
+    alert(`Chuyển đổi từ meter sang feet ${result2(m)}`);
+</script>
+</body>
+</html>
