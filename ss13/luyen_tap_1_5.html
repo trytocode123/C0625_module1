@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = prompt("Nhập chòm sao");
+  let list1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+  let list2 = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+  function star (string) {
+    for (let i = 0; i < list1.length; i++) {
+      if (list1.includes(string)) {
+       alert(`Chòm sao tương ứng: ${list2[list1.indexOf(string)]}`);
+       break;
+
+      } else {
+        alert(`Không có chòm sao phù hợp`);
+        break;
+
+      }
+    }
+
+  }
+  star(a);
+</script>
+</body>
+</html>

@@ -7,7 +7,13 @@
 <body>
 <script>
   let string = prompt("Nhập chuỗi");
-  alert(`Số từ trong một chuỗi là ${string.length}`)
+  let newString = string.split(" ");
+  for (let i = 0; i < newString.length; i++) {
+      if(newString[i] === ""){
+          newString.splice(newString[i], 1);
+      }
+  }
+  alert(`Số từ trong một chuỗi là ${newString.length}`)
 </script>
 </body>
 </html>
