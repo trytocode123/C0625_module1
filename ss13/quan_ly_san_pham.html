@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        text-align: center;
+        padding: 30px;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    input#input {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin-left: 5px;
+        border: none;
+        border-radius: 6px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 60%;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    td, th {
+        padding: 12px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        background-color: #2196F3;
+    }
+
+    .action-btn:hover {
+        background-color: #1976D2;
+    }
+
+    .delete-btn {
+        background-color: #f44336;
+    }
+
+    .delete-btn:hover {
+        background-color: #d32f2f;
+    }
+
+    h3 {
+        margin-top: 30px;
+        color: #444;
+    }
+</style>
+
+<body>
+
+<h1>Add New Product</h1>
+<input id="input" placeholder="New Product">
+<button onclick="add()">Add</button>
+<h1>Display All Product</h1>
+<h3>Product Name</h3>
+<label id="product"></label>
+<p id="table"></p>
+<script>
+    let list = ["Sony", "Samsung", "Iphone", "Bphone"];
+    let stringTable = `<table border="1" style="border-collapse: collapse; ">`;
+
+    function display() {
+        let stringTable = `<table border='1' style="border-collapse: collapse; width: 200px; height: 200px">`;
+        for (let i = 0; i < list.length; i++) {
+            stringTable += `<tr>
+                      <td>${list[i]}</td>
+                      <td><button class="action-btn" onclick="edit(${i})">Edit</button></td>
+                      <td><button class="delete-btn" onclick="del(${i})">Delete</button></td>
+                     </tr>`;
+
+        }
+        stringTable += `</table>`;
+        document.getElementById("table").innerHTML = stringTable;
+    }
+
+    display();
+
+    function edit(i) {
+        let content = prompt("Nhập nội dung cần chỉnh sửa");
+        let arrayString = content.split(" ");
+        if (arrayString.join("") !== "") {
+            list.splice(i, 1, content);
+            display();
+        } else {
+            alert("Vui lòng nhập nội dung chỉnh sửa!");
+        }
+    }
+
+    function del(i) {
+        let checkDel = confirm("Bạn có chắc muốn xóa sản phẩm không?");
+        if (checkDel) {
+            list.splice(i, 1);
+            display();
+            product();
+        }
+
+    }
+
+    function add() {
+        if (list.includes(document.getElementById("input").value)) {
+            alert("Sản phẩm đã có trong danh sách, vui lòng thêm sản phẩm khác");
+        } else {
+            if (document.getElementById("input").value === "") {
+                alert("Vui lòng nhập sản phẩm");
+
+            } else {
+                list.push(document.getElementById("input").value);
+                display();
+                product();
+            }
+        }
+
+    }
+
+    document.getElementById("input").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            add();
+            product();
+        }
+    });
+
+    function product() {
+        document.getElementById("product").innerText = `Product: ${list.length}`;
+    }
+
+    product();
+
+</script>
+</body>
+</html>
