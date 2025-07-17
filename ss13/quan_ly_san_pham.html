@@ -114,13 +114,18 @@
 
     function edit(i) {
         let content = prompt("Nhập nội dung cần chỉnh sửa");
-        let arrayString = content.split(" ");
-        if (arrayString.join("") !== "") {
-            list.splice(i, 1, content);
-            display();
+        if (list.includes(content)) {
+            alert("Tên sản phẩm đã tồn tại");
         } else {
-            alert("Vui lòng nhập nội dung chỉnh sửa!");
+            let arrayString = content.split(" ");
+            if (arrayString.join("") !== "") {
+                list.splice(i, 1, content);
+                display();
+            } else {
+                alert("Vui lòng nhập nội dung chỉnh sửa!");
+            }
         }
+
     }
 
     function del(i) {
