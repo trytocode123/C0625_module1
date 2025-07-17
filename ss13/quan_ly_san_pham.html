@@ -96,15 +96,16 @@
     let list = ["Sony", "Samsung", "Iphone", "Bphone"];
     let stringTable = `<table border="1" style="border-collapse: collapse; ">`;
 
+    //display UI
     function display() {
         let stringTable = `<table border='1' style="border-collapse: collapse; width: 200px; height: 200px">`;
         for (let i = 0; i < list.length; i++) {
             stringTable += `<tr>
                       <td>${list[i]}</td>
-                      <td><button class="action-btn" onclick="edit(${i})">Edit</button></td>
+                      <td>
+                      <button class="action-btn" onclick="edit(${i})">Edit</button></td>
                       <td><button class="delete-btn" onclick="del(${i})">Delete</button></td>
                      </tr>`;
-
         }
         stringTable += `</table>`;
         document.getElementById("table").innerHTML = stringTable;
@@ -112,55 +113,69 @@
 
     display();
 
+    //edit product name
     function edit(i) {
         let content = prompt("Nhập nội dung cần chỉnh sửa");
         if (list.includes(content)) {
             alert("Tên sản phẩm đã tồn tại");
         } else {
-            let arrayString = content.split(" ");
-            if (arrayString.join("") !== "") {
+            if (checkNoSpace(content)) {
                 list.splice(i, 1, content);
-                display();
+                updateUI();
             } else {
-                alert("Vui lòng nhập nội dung chỉnh sửa!");
+                alert("Vui lòng nhập nội dung để chỉnh sửa");
             }
         }
-
     }
 
+    //delele product
     function del(i) {
         let checkDel = confirm("Bạn có chắc muốn xóa sản phẩm không?");
         if (checkDel) {
             list.splice(i, 1);
-            display();
-            product();
+            updateUI();
         }
-
     }
 
+    // add product
     function add() {
         if (list.includes(document.getElementById("input").value)) {
             alert("Sản phẩm đã có trong danh sách, vui lòng thêm sản phẩm khác");
         } else {
-            if (document.getElementById("input").value === "") {
-                alert("Vui lòng nhập sản phẩm");
-
-            } else {
+            if (checkNoSpace(document.getElementById("input").value)) {
                 list.push(document.getElementById("input").value);
-                display();
-                product();
+                updateUI();
+            } else {
+                alert("Vui lòng nhập tên sản phẩm để thêm vào");
             }
         }
-
     }
 
-    document.getElementById("input").addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-            add();
-            product();
-        }
-    });
+    // check no space
+    function checkNoSpace(string) {
+        let arrayString = string.split(" ");
+        return arrayString.join("") !== "";
+    }
 
+    //update UI
+    function updateUI() {
+        display();
+        product();
+    }
+
+    // keydown event
+    function handleKeyDown() {
+        document.getElementById("input").addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                add();
+                product();
+            }
+        });
+    }
+
+    handleKeyDown();
+
+    // quality
     function product() {
         document.getElementById("product").innerText = `Product: ${list.length}`;
     }
