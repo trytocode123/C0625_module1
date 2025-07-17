@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let nums = [];
+
+    function reverse() {
+
+        let n = +prompt("Nhập bao nhiêu số");
+        let i = 0;
+        while (i < n) {
+            let num = +prompt("Nhập số vào mảng");
+            nums.push(num);
+            i++;
+        }
+        alert(`Mảng vừa được tạo ${nums}`);
+        return nums.reverse();
+    }
+
+
+    alert(`Mảng sau khi đảo ngược ${reverse()}`);
+
+</script>
+</body>
+</html>

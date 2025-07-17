@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let chars = [];
+    let n = +prompt("Nhập bao nhiêu ký tự");
+    let i = 0;
+    while (i < n) {
+        let num = prompt("Nhập ký tự vào mảng");
+        chars.push(num);
+        i++;
+    }
+
+    let char = prompt("Nhập ký tự để kiểm tra");
+
+    function checkChar(chars, char) {
+        let count = 0;
+        if (chars.includes(char)) {
+            for (let j = 0; j < chars.length; j++) {
+                if (chars[j] === char) {
+                    count++;
+                }
+            }
+            return count;
+        } else {
+            return -1;
+        }
+    }
+
+    if (checkChar(chars, char) !== -1) {
+        alert(`Số lần ký tự xuất hiện trong mảng là ${checkChar(chars, char)}`)
+    } else {
+        alert(`Ký tự không xuất hiện trong mảng`);
+    }
+
+</script>
+</body>
+</html>

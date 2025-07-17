@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function doubleMulti() {
+        let a = +prompt("Nhập số");
+        if (a === 0) {
+            while (a === 0) {
+                a = +prompt("Nhập lại số");
+            }
+        }
+        return a *= a;
+    }
+
+    alert(`Bình phương số vừa nhập là ${doubleMulti()}`)
+</script>
+</body>
+</html>

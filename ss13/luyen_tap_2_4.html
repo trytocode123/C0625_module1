@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let a = +prompt("Nhập ký tự");
+
+    let resultCheck = function check(a) {
+        if (a > 0 || a < 0 || a === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    resultCheck(a) ? alert('Ký tự vừa nhập là ký tự số') : alert("Ký tự vừa nhập không phải ký tự số");
+
+</script>
+</body>
+</html>

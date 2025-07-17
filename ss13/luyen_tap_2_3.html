@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let numb = +prompt("Nhập số");
+    let result = (numb) => {
+        let init = 1;
+        for (let i = 1; i <= numb; i++) {
+            init *= i;
+        }
+        return init;
+    }
+
+    alert(`Giai thừa số vừa nhập là ${result(numb)}`)
+</script>
+</body>
+</html>

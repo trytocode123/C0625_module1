@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  const PI = 3.14;
+  let r = +prompt("Nhập bán kính");
+  let d = +prompt("Nhập đường kính");
+  function dienTichHinhTron (r) {
+    let dienTich = PI * (r * r);
+    return dienTich;
+  }
+
+  function chuViHinhTron (d) {
+    let chuVi = PI * d;
+    return chuVi;
+  }
+
+  alert(`Diện tích hình tròn là ${dienTichHinhTron(r)}`);
+  alert(`Chu vi hình tròn là ${chuViHinhTron(d)}`);
+</script>
+</body>
+</html>

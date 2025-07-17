@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập số thứ nhất");
+    let b = +prompt("Nhập số thứ hai");
+
+   function swap (a, b) {
+        let term;
+        term = a;
+        a = b;
+        b = term;
+
+        alert(`Hai số sau khi đổi chỗ: ${a} và ${b}`);
+    }
+
+    swap(a, b);
+</script>
+</body>
+</html>
