@@ -16,14 +16,15 @@
             }
         }
 
-        if(count > 1) {
-            alert(`Số ${numb} không phải là số nguyên tố`);
-        } else {
-            alert(`Số ${numb} là số nguyên tố`);
-        }
+        return count === 0;
     }
 
-    isPrime(numb);
+    if(isPrime(numb)) {
+        alert(`${numb} là số nguyên tố`);
+    } else {
+        alert(`${numb} không phải là số nguyên tố`);
+    }
+
 
 </script>
 </body>
