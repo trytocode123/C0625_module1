@@ -28,35 +28,19 @@
     }
 
     function sumChanLe(arr) {
-        let sumChan = 0;
-        let sumLe = 0;
+        let sumChanLe = 0;
+
         for (let j = 0; j < arr.length; j++) {
 
-            if (kiemTraChanLe(arr[j])) {
-                sumChan += arr[j];
-            } else {
-                sumLe += arr[j];
+            if (kiemTraChanLe(arr[j]) && j % 2 !== 0) {
+                sumChanLe += arr[j];
             }
         }
-        alert(`Tổng các số chẵn: ${sumChan}`);
-        alert(`Tổng các số chẵn: ${sumLe}`);
+        alert(`Tổng các số chẵn ở vị trí lẻ: ${sumChanLe}`);
 
     }
 
     sumChanLe(arr);
-
-    let a = +prompt("Nhập số");
-
-    function binary(a) {
-        let string = "";
-        while (a > 0) {
-            string = (a % 2) + string;
-            a = Math.floor(a /= 2);
-        }
-        return string;
-    }
-
-    alert(`${binary(a)}`);
 
 
 </script>
