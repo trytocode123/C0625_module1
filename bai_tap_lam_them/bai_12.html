@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let stringDate = prompt("Nhập ngày tháng năm");
+
+    let checkDate = (string) => {
+        let arr = string.split("/");
+        if (arr[0] > 31 || arr[0] <= 0 || arr[1] > 12 || arr[arr.length - 1] > 2025
+            || arr[0].length < 2 || arr[1].length < 2 || arr[arr.length - 1].length < 4) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    checkDate(stringDate);
+
+</script>
+</body>
+</html>

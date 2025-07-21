@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    class Rectangle {
+        constructor(length, width) {
+            this.lenght = length;
+            this.width = width;
+        }
+
+        getArea() {
+            return this.lenght * this.width;
+        }
+
+        getPerimeter() {
+            return (this.lenght + this.width) * 2;
+        }
+
+        getLength() {
+            return this.lenght;
+        }
+
+        getWidth() {
+            return this.width;
+        }
+
+        setWidth(width) {
+            this.width = width;
+        }
+
+        setLength(length) {
+            this.lenght = length;
+        }
+    }
+
+    let rectangle1 = new Rectangle(150, 300);
+
+    alert(`Diện tích hình chữ nhật ${(rectangle1.getArea())}`);
+    alert(`Chu vi hình chữ nhật ${(rectangle1.getPerimeter())}`);
+
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+
+    let grd = ctx.createLinearGradient(0, 0, 200, 0);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "white");
+
+    ctx.fillStyle = grd;
+    ctx.fillRect(10, 10, rectangle1.getWidth(), rectangle1.getLength());
+
+</script>
+</body>
+</html>

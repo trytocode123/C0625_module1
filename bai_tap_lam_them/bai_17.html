@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập chuỗi");
+
+
+    function checkString(string) {
+        let newString = string.split(" ");
+        let vietTat = "";
+        let count = 0;
+
+        for (let i = 0; i < newString.length; i++) {
+            if (newString[i] !== "") {
+                count++;
+            }
+        }
+
+        if (count === 1) {
+            return string.trim();
+        } else {
+            for (let i = 0; i < newString.length; i++) {
+                if (newString[i] !== "") {
+                    vietTat += newString[i][0];
+                }
+            }
+            return vietTat.trim();
+        }
+    }
+
+    alert(checkString(string));
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập chuỗi");
+    let arr = ["u", "e", "o", "a", "i"];
+
+    function checkString(string) {
+        let arrString = [];
+        for (let i = 0; i < string.length; i++) {
+            if (arr.includes(string[i])) {
+                arrString.push(string[i]);
+            }
+        }
+        return arrString;
+    }
+
+    alert(checkString(string));
+</script>
+</body>
+</html>

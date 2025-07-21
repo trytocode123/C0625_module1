@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(degreeC) {
+            this.degreeC = degreeC;
+        }
+
+        getCToF() {
+            return (this.degreeC * 1.8) + 32;
+        }
+
+        getCToK() {
+            return this.degreeC + 273.15;
+        }
+
+        setC(c) {
+            this.degreeC = c;
+        }
+    }
+
+    let tempC = new Temperature();
+    let c;
+    do {
+        c = +prompt("Nhập độ C");
+    } while (c < -273);
+    tempC.setC(c);
+
+    alert(`Nhiệt độ từ C sáng F: ${tempC.getCToF()}°F`);
+    alert(`Nhiệt độ từ C sáng K: ${tempC.getCToK()}K`);
+</script>
+</body>
+</html>

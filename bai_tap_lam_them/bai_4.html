@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập chuỗi");
+    let countUpper = 0;
+    let countLower = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] !== " ") {
+            if (string[i] === string[i].toUpperCase()) {
+                countUpper++;
+            } else {
+                countLower++;
+            }
+        }
+    }
+    if (countUpper === countLower) {
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+</script>
+</body>
+</html>
