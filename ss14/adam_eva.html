@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        #weight;
+
+        constructor(weight) {
+            this.#weight = weight;
+        }
+
+
+        getWeight() {
+            return this.#weight;
+        }
+
+        decrease() {
+            if (!this.isEmpty()) {
+                this.#weight--;
+            }
+        }
+
+        isEmpty() {
+            if (this.#weight === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    class Human {
+        #name;
+        #gender;
+        #weight;
+
+        constructor(name, gender, weight) {
+            this.#name = name;
+            this.#weight = weight;
+            this.#gender = gender;
+        }
+
+        getGender() {
+            return this.#gender;
+        }
+
+        getName() {
+            return this.#name;
+        }
+
+        getWeight() {
+            return this.#weight;
+        }
+
+        setGender(gender) {
+            this.#gender = gender;
+        }
+
+        setName(name) {
+            this.#name = name;
+        }
+
+        setWeight(weight) {
+            this.#weight = weight;
+        }
+
+        isMale() {
+            if (this.getGender() === "male") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        checkApple(apple) {
+            return apple.isEmpty();
+        }
+
+        eat(apple) {
+            if (this.checkApple(apple)) {
+                alert("Hết táo rồi");
+            } else {
+                apple.decrease();
+                this.setWeight(this.getWeight() + 1);
+            }
+        }
+
+        say(text) {
+        }
+    }
+
+    class Adam extends Human {
+        constructor(name, gender, weight) {
+            super(name, gender, weight);
+        }
+
+        say(text) {
+            alert(this.getName() + " " + text);
+        }
+    }
+
+    class Eva extends Human {
+        constructor(name, gender, weight) {
+            super(name, gender, weight);
+        }
+
+        say(text) {
+            alert(this.getName() + " " + text);
+        }
+    }
+
+    let apple = new Apple(10);
+    console.log(apple.getWeight());
+
+    let eva = new Eva("eva1", "female", 60);
+    eva.say("hello how are you");
+
+    let adam = new Adam("adam1", "male", 70);
+    adam.say("i'm fine thank you and you");
+
+    adam.eat(apple);
+    eva.eat(apple);
+
+    console.log(adam.getWeight());
+    console.log(eva.getWeight());
+    console.log(apple.getWeight());
+
+
+</script>
+</body>
+</html>

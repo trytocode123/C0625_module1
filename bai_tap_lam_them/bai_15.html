@@ -10,7 +10,7 @@
     let arr = [];
     do {
         n = +prompt("Nhập độ dài mảng");
-    } while (n <= 0 || n % 2 !== 0);
+    } while (n <= 0);
 
     for (let i = 0; i < n; i++) {
         let num = +prompt(`Nhập phần tử thứ ${i + 1}`);
@@ -19,16 +19,14 @@
 
     alert(`Mảng vừa tạo: ${arr}`);
 
-    let flag = true;
+    let flag = false;
 
-    for (let i = 1; i < arr.length; i+=2) {
-        if(arr[i] < arr[i-1]) {
+    for (let i = 0; i < arr.length; i++) {
+        if (Number.isInteger(Math.sqrt(5 * Math.pow(arr[i], 2) + 4)) || Number.isInteger(Math.sqrt(5 * Math.pow(arr[i], 2) - 4))) {
             flag = !flag;
-            break;
         }
     }
-
-    flag ? alert("OK") : alert("NO")
+    flag ? alert("OK") : alert("NO");
 </script>
 </body>
 </html>

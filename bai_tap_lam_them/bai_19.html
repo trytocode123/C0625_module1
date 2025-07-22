@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập chuỗi");
+
+
+    function checkString(str) {
+        let arrUpper = [];
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] !== " " && string[i] === string[i].toUpperCase()) {
+                arrUpper.push(string[i]);
+            }
+        }
+        return arrUpper.join("");
+    }
+
+    alert(checkString(string));
+
+
+</script>
+</body>
+</html>
