@@ -93,20 +93,37 @@
 <label id="product"></label>
 <p id="table"></p>
 <script>
-    let list = ["Sony", "Samsung", "Iphone", "Bphone"];
+
+
+    class SanPham {
+        name
+
+        constructor(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name
+        }
+    }
+
+    let list = [new SanPham("Samsung"), new SanPham("Nokia"), new SanPham("Bphone")];
 
     class QuanLySanPham {
         constructor(list) {
             this.list = list;
         }
 
-
         //display UI
         display() {
             let stringTable = `<table border='1' style="border-collapse: collapse; width: 200px; height: 200px">`;
             for (let i = 0; i < this.list.length; i++) {
                 stringTable += `<tr>
-                      <td>${this.list[i]}</td>
+                      <td>${this.list[i].name}</td>
                       <td>
                       <button id="edit-btn" class="action-btn" onclick="quanLy1.edit(${i})">Edit</button></td>
                       <td><button class="delete-btn" onclick="quanLy1.del(${i})">Delete</button></td>
@@ -120,34 +137,24 @@
         //edit product name
         edit(i) {
             let content = prompt("Nhập nội dung cần chỉnh sửa");
-            if (this.list.includes(content)) {
-                alert("Tên sản phẩm đã tồn tại");
-            } else {
-                if (this.checkNoSpace(content)) {
-                    this.list.splice(i, 1, content);
-                    this.updateUI();
-                } else {
-                    alert("Vui lòng nhập nội dung để chỉnh sửa");
-                }
+
+            if (this.checkNoSpace(content)) {
+                this.list.splice(i, 1, new SanPham(content));
+                this.updateUI();
+
             }
         }
 
         // add product
         add() {
-            if (this.list.includes(document.getElementById("input").value)) {
-                alert("Sản phẩm đã có trong danh sách, vui lòng thêm sản phẩm khác");
-            } else {
-                if (this.checkNoSpace(document.getElementById("input").value)) {
-                    this.list.push(document.getElementById("input").value);
-                    this.updateUI();
-                } else {
-                    alert("Vui lòng nhập tên sản phẩm để thêm vào");
-                }
+
+            if (this.checkNoSpace(document.getElementById("input").value)) {
+                this.list.push(new SanPham(document.getElementById("input").value));
+                this.updateUI();
             }
         }
 
         //delele product
-
         del(i) {
             let checkDel = confirm("Bạn có chắc muốn xóa sản phẩm không?");
             if (checkDel) {
@@ -172,7 +179,6 @@
             });
         }
 
-
         // quality
         product() {
             document.getElementById("product").innerText = `Product: ${list.length}`;
@@ -189,6 +195,7 @@
     quanLy1.display();
     quanLy1.product();
     quanLy1.handleKeyDown();
+
 
 </script>
 </body>

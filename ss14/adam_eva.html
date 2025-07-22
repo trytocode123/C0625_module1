@@ -69,11 +69,7 @@
         }
 
         isMale() {
-            if (this.getGender() === "male") {
-                return true;
-            } else {
-                return false;
-            }
+            return this.getGender() === "male" ? true : false;
         }
 
         checkApple(apple) {
@@ -128,8 +124,6 @@
     console.log(adam.getWeight());
     console.log(eva.getWeight());
     console.log(apple.getWeight());
-
-
 </script>
 </body>
 </html>
