@@ -8,7 +8,7 @@
 <script>
 
     let n;
-    let arr = new Array();
+    let arr = [];
     do {
         n = +prompt("Nhập độ dài mảng");
     } while (n <= 0);
@@ -30,11 +30,7 @@
         }
     }
 
-    if (countEvenNum === countOddNum) {
-        alert("OK");
-    } else {
-        alert("NO");
-    }
+    countEvenNum === countOddNum ? alert("OK") : alert("NO");
 
 </script>
 </body>
