@@ -96,18 +96,18 @@
 
 
     class SanPham {
-        name
+        #name
 
         constructor(name) {
-            this.name = name;
+            this.#name = name;
         }
 
         getName() {
-            return this.name;
+            return this.#name;
         }
 
         setName(name) {
-            this.name = name
+            this.#name = name
         }
     }
 
@@ -123,7 +123,7 @@
             let stringTable = `<table border='1' style="border-collapse: collapse; width: 200px; height: 200px">`;
             for (let i = 0; i < this.list.length; i++) {
                 stringTable += `<tr>
-                      <td>${this.list[i].name}</td>
+                      <td>${this.list[i].getName()}</td>
                       <td>
                       <button id="edit-btn" class="action-btn" onclick="quanLy1.edit(${i})">Edit</button></td>
                       <td><button class="delete-btn" onclick="quanLy1.del(${i})">Delete</button></td>
