@@ -1,10 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<p id="table">table</p>
+<button onclick="m.add()">Thêm mới</button>
+<button onclick="m.sort(listPC)">Sắp xếp</button>
+<script>
+    class Computer {
+        #id;
+        #name;
+        #brand;
+        #price;
+
+        constructor(id, name, brand, price) {
+            this.#id = id;
+            this.#brand = brand;
+            this.#name = name;
+            this.#price = price;
+        }
+
+        getId() {
+            return this.#id;
+        }
+
+        getName() {
+            return this.#name;
+        }
+
+        getBrand() {
+            return this.#brand;
+        }
+
+        getPrice() {
+            return this.#price;
+        }
+
+        setId(id) {
+            this.#id = id;
+        }
+
+        setName(name) {
+            this.#name = name;
+        }
+
+        setBrand(brand) {
+            this.#brand = brand;
+        }
+
+        setPrice(price) {
+            this.#price = price;
+        }
+
+        toString() {
+            let string = this.getId() + this.getName() + this.getBrand() + this.getPrice();
+            return string;
+        }
+    }
+
+    let listPC = [new Computer("01", "Máy 1", "Asus", 12000000), new Computer("03", "Máy 2", "Asus", 11000000), new Computer("03", "Máy3", "Asus", 10000000)]
+
+    class ManagePC {
+        display() {
+            let stringTable = `<table border="1" style="border-collapse: collapse"> <tr>
+                               <th>Mã máy</th>
+                               <th>Tên máy</th> <th> Tên hãng sản xuất</th>
+                               <th>Giá bán</th></tr>`
+
+            for (let i = 0; i < listPC.length; i++) {
+                stringTable += `<tr>
+                <td>${listPC[i].getId()}</td>
+                <td>${listPC[i].getName()}</td>
+                <td>${listPC[i].getBrand()}</td>
+                <td>${listPC[i].getPrice()}</td> </tr>`
+            }
+            stringTable += `</table>`
+
+            document.getElementById("table").innerHTML = stringTable;
+        }
+
+        add() {
+            let iD = prompt("Nhập mã máy tính");
+            let name = prompt("Tên máy");
+            let brand = prompt("Tên hãng sản phẩm");
+            let price = +prompt("Giá bán")
+
+            listPC.push(new Computer(iD, name, brand, price.toLocaleString('vi-VN')));
+            this.display();
+        }
+
+        sort(arr) {
+            arr.sort(function (a, b) {
+                return a.getPrice() - b.getPrice();
+            });
+            this.display();
+        }
+    }
+
+    let m = new ManagePC();
+    m.display();
+
+
+</script>
 </body>
 </html>

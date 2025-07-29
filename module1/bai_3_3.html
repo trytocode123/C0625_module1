@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let numerators = [5, 2, 5, 9];
+    let denominators = [6, 3, 4, 1];
+    let max = numerators[0] / denominators[0];
+    let index = 0;
+    for (let i = 0; i < numerators.length; i++) {
+        if(numerators[i] / denominators[i] > max) {
+            max = (numerators[i] / denominators[i]);
+            index = i;
+        }
+    }
+
+    console.log(index);
+</script>
 </body>
 </html>

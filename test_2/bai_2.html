@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let string = prompt("Nhập chuỗi");
+
+    function returnFirstLetter(string) {
+        let handleString = string.split(" ");
+
+        for (let i = 0; i < handleString.length; i++) {
+            if (handleString[i] === '' || (handleString[i] < "A" && handleString[i] > "Z") ||
+                (handleString[i] < "a" && handleString[i] > "z")) {
+                handleString.splice(i, 1);
+                i--;
+            }
+        }
+        console.log(handleString);
+        let arrFirstLetter = [];
+        if (handleString.length > 1) {
+            for (let i = 0; i < handleString.length; i++) {
+
+                let firstLetter = handleString[i].slice(0, 1).toUpperCase();
+                arrFirstLetter.push(firstLetter);
+            }
+        }
+        return (arrFirstLetter.join(""));
+    }
+
+    alert(returnFirstLetter(string));
+
+</script>
 </body>
 </html>

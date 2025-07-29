@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let string = prompt("Nhập chuỗi ký tự");
+
+    function checkString(s) {
+        let countUpper = 0;
+        let countLower = 0;
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] >= "A" && s[i] <= "Z") {
+                countUpper++;
+            } else if (s[i] >= "a" && s[i] <= "z") {
+                countLower++;
+            }
+        }
+        return [countUpper, countLower];
+    }
+
+    alert(`Số lượng ký tự in hoa là ${checkString(string)[0]} và số lượng ký tự in thường là ${checkString(string)[1]} (${checkString(string)})`);
+
+
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+

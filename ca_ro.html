@@ -7,10 +7,10 @@
 <body>
 <p id="table"></p>
 <script>
-    let array = new Array(10);
+    let array = new Array(40);
 
     for (let i = 0; i < array.length; i++) {
-        array[i] = new Array(10);
+        array[i] = new Array(40);
         for (let j = 0; j < array[i].length; j++) {
             array[i][j] = "";
         }
@@ -23,7 +23,18 @@
         for (let i = 0; i < array.length; i++) {
             tableString += `<tr>`;
             for (let j = 0; j < array[i].length; j++) {
-                tableString += `<td onclick="play(${i},${j})" style="text-align: center; width: 40px; height: 40px">${array[i][j]}</td>`;
+                let value = array[i][j];
+                let color = "";
+                if (value === "X") {
+                    color = "red";
+                } else if (value === "O") {
+                    color = "blue";
+                }
+
+                tableString += `<td onclick="play(${i},${j})"
+                             style="text-align: center; width: 40px; height: 40px; font-size: 20px; color: ${color}">
+                                ${value}
+                            </td>`;
             }
             tableString += `</tr>`;
         }
@@ -40,16 +51,16 @@
             if (playerX) {
                 array[i][j] = "X";
                 playerX = !playerX;
-                if (checkWin()) {
-                    alert("X win");
-                }
+                // if (checkWin()) {
+                //     alert("X win");
+                // }
             } else {
 
                 array[i][j] = "O";
                 playerX = !playerX;
-                if (checkWin()) {
-                    alert("O win");
-                }
+                // if (checkWin()) {
+                //     alert("O win");
+                // }
 
             }
         }

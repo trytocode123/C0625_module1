@@ -7,7 +7,7 @@
 <body>
 <script>
 
-    let stringDate = prompt("Nhập ngày tháng năm");
+    let stringDate = prompt("Nhập ngày tháng năm dd/mm/yyyy");
 
     let checkDate = (string) => {
         let arr = string.split("/");
@@ -20,7 +20,11 @@
 
     }
 
-    checkDate(stringDate);
+    while (!checkDate(stringDate)) {
+        alert("Không đúng định dạng");
+        stringDate = prompt("Nhập ngày tháng năm dd/mm/yyyy");
+    }
+    alert(stringDate);
 
 </script>
 </body>

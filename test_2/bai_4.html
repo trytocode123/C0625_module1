@@ -1,10 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f2f4f8;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    div {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 850px;
+        text-align: center;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    th {
+        background-color: #343a40;
+        color: #ffffff;
+        height: 50px;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    td {
+        background-color: #f9f9f9;
+        color: #333;
+        height: 40px;
+        font-size: 16px;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover td {
+        background-color: #e9f5ff;
+    }
+</style>
 <body>
-$END$
+<div>
+    <button onclick="quanLyDanhBaDienThoai.del()">Xóa</button>
+    <p id="table">Table</p>
+</div>
+
+
+<script>
+    class DanhBaDienThoai {
+        #soDienThoai;
+        #tenChuDanhBa;
+        #diaChi;
+
+        constructor(tenChuDanhBa, soDienThoai, diaChi) {
+            this.#soDienThoai = soDienThoai;
+            this.#tenChuDanhBa = tenChuDanhBa;
+            this.#diaChi = diaChi;
+        }
+
+        getSoDienThoai() {
+            return this.#soDienThoai
+        }
+
+        getTenChuDanhBa() {
+            return this.#tenChuDanhBa;
+        }
+
+        getDiaChi() {
+            return this.#diaChi;
+        }
+    }
+
+    let list = [new DanhBaDienThoai("Nguyễn Ngọc Thới", "00112233445", "Nhà mặt phố bố làm to"),
+        new DanhBaDienThoai("Nguyễn Nhật Thành", "0001212122", "Quảng Trị"),
+        new DanhBaDienThoai("Nguyễn Nhật Nam", "0001212122", "Quảng Ngãi"),
+        new DanhBaDienThoai("Nguyễn Nhật A", "12012121221", "Quảng Bình"),
+        new DanhBaDienThoai("Nguyễn Nhật B", "056012121221", "Quảng Nam"),]
+
+    class QuanLyDanhBaDienThoai {
+        display() {
+            let string = `<table style="width: 800px; border-collapse: collapse" border="1">
+                             <tr><th>Tên chủ danh bạ</th>
+                             <th>Số điện thoại</th>
+                             <th>Địa chỉ</th>
+                             </tr>`;
+            for (let i = 0; i < list.length; i++) {
+                string += `<tr>
+                           <td>${list[i].getTenChuDanhBa()}</td>
+                           <td>${list[i].getSoDienThoai()}</td>
+                           <td>${list[i].getDiaChi()}</td>
+                           </tr>`;
+            }
+            string += `<table>`;
+
+            document.getElementById("table").innerHTML = string;
+        }
+
+        del() {
+            let flag = true;
+            let ten = prompt("Nhập tên để xóa");
+            for (let i = 0; i < list.length; i++) {
+                if (list[i].getTenChuDanhBa() === ten) {
+                    if (confirm("Bạn có chắc muốn xóa không?")) {
+                        list.splice(i, 1);
+                        i--;
+                        flag = true;
+                        break;
+                    }
+                } else {
+                    flag = false;
+                }
+            }
+            if (!flag) {
+                alert("Không tồn tại chủ danh bạ")
+            }
+            this.display();
+        }
+    }
+
+    let quanLyDanhBaDienThoai = new QuanLyDanhBaDienThoai();
+    quanLyDanhBaDienThoai.display();
+
+</script>
 </body>
 </html>

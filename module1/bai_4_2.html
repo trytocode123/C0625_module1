@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let s = prompt("Nhập ký xâu ký tự");
+
+    function differentSymbolsNaive(s) {
+        let handleString = s.split("");
+        for (let i = 0; i < handleString.length; i++) {
+            for (let j = i + 1; j < handleString.length; j++) {
+                if (handleString[i] === handleString[j]) {
+                    handleString.splice(handleString.indexOf(handleString[j]), 1);
+                    i--;
+                }
+            }
+        }
+        return handleString.join("").length;
+    }
+
+    alert(`Số lượng ký tự khác nhau: ${differentSymbolsNaive(s)}`);
+</script>
 </body>
 </html>

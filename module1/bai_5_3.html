@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let m = +prompt("Nhập độ dài mảng một chiều");
+    let n = +prompt("Nhập độ dài mảng hai chiều");
+
+    function minMax(m, n) {
+        let arr = [];
+
+        for (let i = 0; i < m; i++) {
+            let newArr = [];
+            for (let j = 0; j < n; j++) {
+                let numb = +prompt(`Nhập số thứ ${j + 1} của mảng thứ ${i + 1}`);
+                newArr.push(numb);
+            }
+            arr.push(newArr);
+        }
+        let max = arr[0][0];
+        let min = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
+                }
+            }
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] < min) {
+                    min = arr[i][j];
+                }
+            }
+        }
+
+        alert(`Giá trị lớn nhất: ${max} và giá trị nhỏ nhất: ${min}`);
+    }
+
+    minMax(m, n);
+</script>
 </body>
 </html>

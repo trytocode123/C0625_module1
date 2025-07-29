@@ -19,10 +19,8 @@
         }
 
         volume(tiVi) {
-            let vol = tiVi.getVolume();
-            vol += 2;
-            tiVi.setVolume(vol);
-            alert(`Âm lượng hiện tại (Đã tăng lên 2 âm lượng): ${vol}/100 `);
+            tiVi.setVolume(tiVi.getVolume() + 2)
+            alert(`Âm lượng hiện tại (Đã tăng lên 2 âm lượng): ${tiVi.getVolume()}/100 `);
         }
 
         remoteOn(tiVi) {

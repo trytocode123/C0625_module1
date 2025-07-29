@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let s1 = prompt("Nhập chuỗi");
+    let s2 = prompt("Nhập chuỗi");
+
+    function commonCharacterCount(s1, s2) {
+        let handleString1 = s1.split("");
+        let handleString2 = s2.split("");
+        let stringArr = [];
+        for (let i = 0; i < handleString1.length; i++) {
+            if (handleString1[i] === (handleString2[i])) {
+                stringArr.push(handleString2[i]);
+            }
+        }
+
+        for (let i = 0; i < stringArr.length; i++) {
+            for (let j = i + 1; j < stringArr.length; j++) {
+                if (stringArr[i] === stringArr[j]) {
+                    stringArr.splice(i, 1);
+                }
+            }
+        }
+        return stringArr;
+    }
+
+    // alert(`Số lượng ký tự chung ${commonCharacterCount(s1, s2).length}: ${commonCharacterCount(s1, s2)[0]} và ${commonCharacterCount(s1, s2)[1]}`);
+    console.log((`Số lượng ký tự chung ${commonCharacterCount(s1, s2)}`));
+</script>
 </body>
 </html>

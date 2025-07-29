@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let string = prompt("Nhập ký tự");
+    let handleString = string.split(" ");
+    let stringArr = [];
+
+    function chuanHoaSau() {
+        for (let i = 0; i < handleString.length; i++) {
+            if (handleString[i] === "") {
+                handleString.splice(i, 1);
+                i--;
+            }
+        }
+
+        for (let i = 0; i < handleString.length; i++) {
+            let upper = handleString[i].slice(0, 1).toUpperCase();
+            let newString = upper + handleString[i].split("").splice(1, handleString[i].length - 1).join("").toLowerCase();
+            stringArr.push(newString);
+        }
+        alert(`Hàm trước khi chuẩn hóa ${string}`);
+        alert(`Hàm sau khi chuẩn hóa ${stringArr.join(" ")}`)
+
+    }
+    function maxLengthString(stringArr) {
+        let max = 0;
+        for (let i = 0; i < stringArr.length; i++) {
+            if (stringArr[i].length > max) {
+                max = stringArr[i];
+            }
+        }
+        alert(`Từ dài nhất trong một xâu ký tự: ${max}`);
+    }
+
+    function main() {
+        chuanHoaSau(string);
+        maxLengthString(stringArr);
+    }
+
+    main();
+</script>
 </body>
 </html>

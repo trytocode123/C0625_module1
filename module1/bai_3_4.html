@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let option;
+    let total = 0;
+    let quality;
+    let string = "1. Cafe\n2 .Cam vắt\n3. Nước ép cà rốt\n4. Nước ép cà chua\n5. Nước lọc\n6. Nước dừa\n7. Thoát gọi món\n\n";
+    let flag = true;
+    do {
+        option = +prompt(`${string}Tổng thanh toán: ${total.toLocaleString('vi-VN')} VND\n`);
+        switch (option) {
+            case 1:
+                quality = +prompt("10K. Nhập số lượng:");
+                total += quality * 10000;
+                string += `- Cafe: ${quality} ly\n\n`;
+                break;
+            case 2:
+                quality = +prompt("15K. Nhập số lượng:");
+                total += quality * 15000;
+                string += `- Cam vắt: ${quality} ly\n\n`;
+                break;
+            case 3:
+                quality = +prompt("20K. Nhập số lượng:");
+                total += quality * 20000;
+                string += `- Nước ép cà rốt: ${quality} ly\n\n`;
+
+                break;
+            case 4:
+                quality = +prompt("25K. Nhập số lượng:");
+                total += quality * 25000;
+                string += `- Nước ép cà chua: ${quality} ly\n\n`;
+                break;
+            case 5:
+                quality = +prompt("30K. Nhập số lượng:");
+                total += quality * 30000;
+                string += `- Nước lọc: ${quality} chai\n\n`;
+                break;
+            case 6:
+                quality = +prompt("35K. Nhập số lượng:");
+                total += quality * 35000;
+                string += `- Nước dừa : ${quality} trái\n\n`;
+                break;
+            case 7:
+                let cf = confirm("Bạn có chắc muốn thoát không?");
+                if (cf) {
+                    flag = !flag;
+                }
+        }
+    } while (flag);
+</script>
 </body>
 </html>

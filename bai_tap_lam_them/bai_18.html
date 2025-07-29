@@ -21,11 +21,17 @@
     let flag = true;
 
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 2; j < arr[i]; j++) {
-            if (arr[i] % j === 0) {
-                flag = !flag;
-                break;
+        if (arr[i] >= 2) {
+            for (let j = 2; j < arr[i]; j++) {
+                if (arr[i] % j === 0) {
+                    flag = !flag;
+                }
             }
+        } else {
+            flag = !flag;
+        }
+        if (!flag) {
+            break;
         }
     }
 

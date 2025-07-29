@@ -1,10 +1,334 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Quản lý học viên</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .btn-group {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        table.student-table {
+            width: 90%;
+            max-width: 800px;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table.student-table th,
+        table.student-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        table.student-table th {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        table.student-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table.student-table tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
-$END$
+<h1>Quản lý học viên</h1>
+
+<div class="btn-group">
+    <button class="btn add-btn" onclick="manageStudent.add()">➕ Thêm học viên</button>
+    <button class="btn edit-btn" onclick="manageStudent.edit()">✏️ Sửa thông tin</button>
+    <button class="btn delete-btn" onclick="manageStudent.del()">🗑️ Xoá học viên</button>
+</div>
+
+<div class="table-container">
+    <div id="table" class="table-wrapper"></div>
+</div>
+<script>
+    class Student {
+        #id;
+        #name;
+        #cl;
+        #email;
+        #dOB;
+        #module
+
+        constructor(id, name, cl, email, dOB, module) {
+            this.#id = id;
+            this.#name = name;
+            this.#cl = cl;
+            this.#email = email;
+            this.#dOB = dOB;
+            this.#module = module;
+        }
+
+        getId() {
+            return this.#id;
+        }
+
+        getName() {
+            return this.#name;
+        }
+
+        getCl() {
+            return this.#cl;
+        }
+
+        getEmail() {
+            return this.#email;
+        }
+
+        getDOB() {
+            return this.#dOB;
+        }
+
+        getModule() {
+            return this.#module;
+        }
+    }
+
+    let listStudent = [
+        new Student("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004"),
+        new Student("HV-0002", "Nguyễn Văn B", "C1022G1", "nguyenvanb@gmail.com", "02/02/2004"),
+        new Student("HV-0003", "Nguyễn Thị C", "C1022G1", "nguyenvanc@gmail.com", "03/03/2004"),
+    ];
+
+    class ManageStudent {
+        display() {
+            let stringTable = `<table class="student-table" border="1" style="border-collapse: collapse; width: 800px">
+                                       <tr>
+                                       <th>Mã học viên</th>
+                                       <th>Tên</th>
+                                       <th>Lớp</th>
+                                       <th>Email</th>
+                                       <th>Ngày sinh</th>
+                                       </tr>`;
+            for (let i = 0; i < listStudent.length; i++) {
+                stringTable += `<tr>
+                                       <td>${listStudent[i].getId()}</td>
+                                       <td>${listStudent[i].getName()}</td>
+                                       <td>${listStudent[i].getCl()}</td>
+                                       <td>${listStudent[i].getEmail()}</td>
+                                       <td>${listStudent[i].getDOB()}</td>
+                                       </tr>`
+            }
+            stringTable += `</table>`;
+            document.getElementById("table").innerHTML = stringTable;
+        }
+
+        add() {
+            let iD = prompt("Nhập mã học viên");
+
+            //Điều kiện kiểm tra đúng định dạng
+
+            // while (!iD) {
+            //     iD = prompt("Không được để trống");
+            // }
+            while (iD.length < 7) {
+                alert("Không đúng định dạng HV-XXXX");
+                iD = prompt("Nhập mã học viên");
+            }
+            if (iD.length >= 7) {
+                let count = 0;
+                for (let i = 0; i < iD.length; i++) {
+                    if (iD[i] === "-") {
+                        count++;
+                    }
+                }
+                while (count > 1) {
+                    alert("Không đúng định dạng HV-XXXX");
+                    iD = prompt("Nhập mã học viên");
+                    count = 0;
+                    for (let i = 0; i < iD.length; i++) {
+                        if (iD[i] === "-") {
+                            count++;
+                        }
+                    }
+                }
+                let handleId = iD.split("-");
+                console.log(handleId)
+                if (handleId) {
+                    while (handleId[0] !== "HV" || handleId[handleId.length - 1].length > 4) {
+                        alert("Không đúng định dạng HV-XXXX");
+                        iD = prompt("Nhập mã học viên");
+                        handleId = iD.split("-");
+                    }
+                }
+            }
+            //Điều kiện thêm mã học viên không được trùng lặp
+            for (let i = 0; i < listStudent.length; i++) {
+                while (listStudent[i].getId().includes(iD)) {
+                    alert("Mã học viên đã tồn tại");
+                    iD = prompt("Nhập mã học viên");
+                }
+            }
+
+            //Điều kiện thêm tên học viên < 50
+            let name = prompt("Nhập tên học viên");
+            while (name.length > 50) {
+                alert("Tên học viên không được lớn hơn 50 ký tự");
+                name = prompt("Nhập tên học viên");
+            }
+            while (!name) {
+                alert("Không được để trống");
+                name = prompt("Nhập tên học viên");
+            }
+            let cl = prompt("Nhập lớp học viên");
+            while (!cl) {
+                cl = prompt("Nhập lớp học viên");
+            }
+            let handleModule = cl.split("");
+            while (+handleModule[handleModule.length - 1] > 6 || +handleModule[handleModule.length - 1] < 0) {
+                alert("Module chỉ được nhấp từ 1-6");
+                cl = prompt("Nhập lớp học viên");
+            }
+
+            let email = prompt("Nhập email học viên");
+            while (!email) {
+                email = prompt("Nhập email học viên");
+            }
+            let dOB = prompt("Nhập ngày sinh học viên");
+            while (!dOB) {
+                dOB = prompt("Nhập ngày sinh học viên");
+            }
+
+
+            let arr = dOB.split("/");
+
+            while (arr.length === 1 || arr[0] > 31 || arr[0] <= 0 || arr[1] > 12 || arr[arr.length - 1] > 2025
+            || arr[0].length < 2 || arr[1].length < 2 || arr[arr.length - 1].length < 4) {
+                alert("Ngày sinh không đúng định dạng dd/mm/yyyy ( ngày / tháng / năm )");
+                dOB = prompt("Nhập ngày sinh học viên");
+                arr = dOB.split("/");
+                console.log(arr)
+            }
+
+            listStudent.push(new Student(iD, name, cl, email, dOB));
+            this.display();
+        }
+
+        edit() {
+            let flag = true;
+            let iDToFix = prompt("Nhập mã học viên cần sữa chửa");
+            while (!iDToFix) {
+                iDToFix = prompt("Không được để trống");
+            }
+            for (let i = 0; i < listStudent.length; i++) {
+                if (listStudent[i].getId() === iDToFix) {
+                    let iD = prompt("Nhập mã học viên");
+
+                    //Điều kiện thêm mã học viên không được trùng lặp
+                    for (let i = 0; i < listStudent.length; i++) {
+                        while (listStudent[i].getId().includes(iD)) {
+                            alert("Mã học viên đã tồn tại");
+                            iD = prompt("Nhập mã học viên");
+                        }
+                    }
+
+                    let name = prompt("Nhập tên học viên");
+                    while (name.length > 50) {
+                        alert("Tên học viên không được lớn hơn 50 ký tự");
+                        name = prompt("Nhập tên học viên");
+                    }
+
+                    let cl = prompt("Nhập lớp học viên");
+                    let handleModule = cl.split("");
+                    while (+handleModule[handleModule.length - 1] > 6 || +handleModule[handleModule.length - 1] < 0) {
+                        alert("Module chỉ được nhấp từ 1-6");
+                        cl = prompt("Nhập lớp học viên");
+                    }
+
+                    let email = prompt("Nhập email học viên");
+                    let dOB = prompt("Nhập ngày sinh học viên");
+                    let arr = dOB.split("/");
+                    for (let j = 0; j < arr.length; j++) {
+                        while (arr.length === 1 || arr[0] > 31 || arr[0] <= 0 || arr[1] > 12 || arr[arr.length - 1] > 2025
+                        || arr[0].length < 2 || arr[1].length < 2 || arr[arr.length - 1].length < 4) {
+                            alert("Ngày sinh không đúng định dạng dd/mm/yyyy ( ngày / tháng / năm )");
+                            dOB = prompt("Nhập ngày sinh học viên");
+                            arr = dOB.split("/");
+                        }
+                    }
+                    listStudent.splice(i, 1, new Student(iD, name, cl, email, dOB));
+                    flag = true;
+                    break;
+                } else {
+                    //Trường hợp mã học viên không tồn tại
+                    flag = false;
+                }
+
+            }
+            if (!flag) {
+                alert("Mã học viên không tồn tại");
+            }
+            this.display();
+        }
+
+        del() {
+            let flag = true;
+            let iDToDelete = prompt("Nhập mã học viên cần xóa");
+            while (!iDToDelete) {
+                iDToDelete = prompt("Không được để trống");
+            }
+            for (let i = 0; i < listStudent.length; i++) {
+                if (listStudent[i].getId() === (iDToDelete)) {
+                    if (confirm("Bạn có chắc muốn xóa không?")) {
+                        listStudent.splice(i, 1);
+                        i--;
+                        break;
+                    }
+                } else {
+                    flag = !flag;
+                }
+            }
+            if (!flag) {
+                alert("Mã học viên không tồn tại");
+            }
+            this.display();
+        }
+    }
+
+    let manageStudent = new ManageStudent();
+    manageStudent.display();
+</script>
 </body>
 </html>

@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let n;
+    let arr = [];
+    do {
+        n = +prompt("Nhập số phần tử");
+    } while ( n <= 0 || n > 50 ||Number.isNaN(n));
+
+    for (let i = 0; i < n; i++) {
+        let num = +prompt(`Nhập phần tử ${i+1}`);
+        arr.push(num);
+    }
+
+    let arrPrime = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let flag = true;
+        if (arr.indexOf(arr[i]) >= 2) {
+            for (let j = 2; j < i; j++) {
+                if (i % j === 0) {
+                    flag = false;
+                    break
+                }
+            }
+            if (flag) {
+                arrPrime.push(arr[i]);
+            }
+        }
+    }
+    let sum = 0;
+    for (let i = 0; i < arrPrime.length; i++) {
+        sum += arrPrime[i];
+    }
+    alert(arrPrime);
+    alert(sum);
+
+</script>
+
 </body>
 </html>
